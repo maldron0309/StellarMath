@@ -40,6 +40,25 @@ Matrix MatrixAdd(const Matrix* m0, const Matrix* m1)
 	return result;
 }
 
+Matrix MatrixSub(const Matrix* m0, const Matrix* m1)
+{
+	if (m0->rows != m1->rows || m0->cols != m1->cols)
+	{
+		fprintf(stderr, "Matrix dimensions must match for subtraction\n");
+		exit(EXIT_FAILURE);
+	}
+
+	Matrix result = MatrixCreate(m0->rows, m0->cols); 
+
+	for (int i = 0; i < m0->rows * m0->cols; ++i) 
+	{
+		result.data[i] = m0->data[i] - m1->data[i];
+	}
+
+	return result;
+}
+
+
 void MatrixPrint(const Matrix* m)
 {
 	for (int i = 0; i < m->rows; ++i) {
