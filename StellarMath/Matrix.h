@@ -1,33 +1,22 @@
 #pragma once
-#include <stdlib.h>
-#include <string.h>
+
 #ifdef __cplusplus
-extern "C"
+extern "C" 
 {
 #endif
 
-	typedef struct Matrix
-	{
-		int rows;
-		int cols;
-		float* data;
-	}Matrix;
+    typedef struct Matrix
+    {
+        int rows;
+        int cols;
+        float* data;
+    } Matrix;
 
-	Matrix MatrixCreate(int rows, int cols)
-	{
-		Matrix m;
-		m.rows = rows;
-		m.cols = cols;
-		m.data = (float*)malloc(rows * cols * sizeof(float));
-		memset(m.data, 0, rows * cols * sizeof(float));
-		return m;
-	}
+    Matrix MatrixCreate(int rows, int cols);
+    void MatrixDestroy(Matrix* m);
+    Matrix MatrixAdd(const Matrix* m0, const Matrix* m1);
+    void MatrixPrint(const Matrix* m);
 
-	void MatrixDestory(Matrix* m)
-	{
-		free(m->data);
-		m->data = NULL;
-		m->rows = 0;
-		m->cols = 0;
-	}
+#ifdef __cplusplus
 }
+#endif

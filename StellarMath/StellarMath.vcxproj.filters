@@ -29,5 +29,11 @@
     <ClCompile Include="Vector.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Matrix.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="matrixTest.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
